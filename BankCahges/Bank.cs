@@ -55,16 +55,13 @@ class Bank
             }
         }
     }
+
     public void SaveData()
     {
         using (StreamWriter writer = new StreamWriter("Data.txt"))
             writer.WriteLine(dataToAppend);  
     }
+
     private void AppendData(object dataforAppend) =>
         dataToAppend += dataforAppend + "\n****************************************\n";
-    static string GetVariableName<T>(Expression<Func<T>> expr)
-    {
-        return ((MemberExpression)expr.Body).Member.Name;
-    }
-
 } 

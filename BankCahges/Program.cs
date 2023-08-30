@@ -22,23 +22,15 @@ namespace BankCahges
 
                 Console.Write("Деньги: ");
                 if (int.TryParse(Console.ReadLine(), out int money))
-                {
                     bank.Money = money;
-                }
                 else
-                {
                     Console.WriteLine("Некорректный ввод для денег.");
-                }
 
                 Console.Write("Процент: ");
                 if (int.TryParse(Console.ReadLine(), out int percent))
-                {
                     bank.Percent = percent;
-                }
                 else
-                {
                     Console.WriteLine("Некорректный ввод для процента.");
-                }
 
                 Console.WriteLine("\nТекущие данные банка:");
                 Console.WriteLine($"Имя: {bank.Name}");
@@ -46,12 +38,11 @@ namespace BankCahges
                 Console.WriteLine($"Процент: {bank.Percent}\n");
                 Console.WriteLine("Выйти?");
                 Console.WriteLine("Для выхода нажмите 1, для продолжения - любую другую клавишу");
+
                 int choice;
                 int.TryParse(Console.ReadLine(), out choice);
                 if ( choice == 1)
-                {
                     break;
-                }
             }
             Thread thread = new Thread(new ThreadStart(bank.SaveData));
             thread.Start();
